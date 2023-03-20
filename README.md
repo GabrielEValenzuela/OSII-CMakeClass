@@ -1,4 +1,4 @@
-# OSII-CMakeClass
+# OS II - CMakeClass
 FCEFyN - Universidad Nacional de Córdoba
 
 ## Useful commands to explore this repository
