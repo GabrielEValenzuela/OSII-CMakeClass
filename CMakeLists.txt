@@ -15,16 +15,23 @@ project(
 # Set the C version
 set(CMAKE_C_STANDARD 11)
 
-# We create our library
-add_library(Calculator STATIC "lib/calculator/src/calculator.c")
+
+add_subdirectory(lib)
 
 # We create our executable
 add_executable(App src/main.c src/foo.c)
 
 # The we add the headers of our project
 target_include_directories(App PRIVATE "include/")
-target_include_directories(App PRIVATE "lib/calculator/include/")
-target_include_directories(Calculator PRIVATE "lib/calculator/include/")
 
 # We link our library
 target_link_libraries(App Calculator)
+
+# Enable testing
+include(CTest)
+
+# We include the C test framework
+add_subdirectory(external)
+#target_include_directories(App PRIVATE "lib/calculator/include/")
+# We add the test folder
+add_subdirectory(tests)
